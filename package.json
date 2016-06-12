@@ -1,0 +1,11 @@
+{
+  "name": "table-sort",
+  "version": "1.0.0",
+  "description": "HTML table sorter",
+  "author": "Mark Robson <mark.o.robson@gmail.com> (http://digioli.co.uk)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
