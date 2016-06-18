@@ -36,6 +36,8 @@ class TableFilter {
           continue;
         }
 
+        headers[i].classList.add('sortable');
+
         //add to sortable list
         this.sortableHeaders[headers[i].cellIndex] = {
           index: headers[i].cellIndex,
@@ -111,8 +113,8 @@ class TableFilter {
     if (header.type === 'alpha') {
 
       rows.sort((a, b) => {
-        a = a.cells[header.index].innerHTML.toLowerCase();
-        b = b.cells[header.index].innerHTML.toLowerCase();
+        a = a.cells[header.index].dataset.sort || a.cells[header.index].innerHTML.toLowerCase();
+        b = b.cells[header.index].dataset.sort || b.cells[header.index].innerHTML.toLowerCase();
         if (direction) {
 
           if (a < b) {
@@ -140,8 +142,8 @@ class TableFilter {
 
     } else {
       rows.sort((a, b) => {
-        a = a.cells[header.index].innerHTML;
-        b = b.cells[header.index].innerHTML;
+        a = a.cells[header.index].dataset.sort || a.cells[header.index].innerHTML;
+        b = b.cells[header.index].dataset.sort || b.cells[header.index].innerHTML;
         return (direction) ? a - b : b - a;
       });
     }
@@ -156,4 +158,8 @@ class TableFilter {
 
   }
 
+}
+
+if (module && module.exports) {
+  module.exports = TableFilter;
 }
