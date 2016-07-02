@@ -8,7 +8,7 @@ class TableFilter {
   */
   constructor (table) {
 
-    if (!table || table.constructor === undefined || table.constructor.name !== 'HTMLTableElement') {
+    if (!table || !table.tagName || table.tagName !== 'TABLE') {
       throw 'You must provide a table DOM element';
     }
 
@@ -160,6 +160,6 @@ class TableFilter {
 
 }
 
-if (module && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = TableFilter;
 }
